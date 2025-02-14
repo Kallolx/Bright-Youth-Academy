@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { AuroraText } from "@/registry/magicui/aurora-text";
-import { ShimmerButton } from "@/registry/magicui/shimmer-button";
 import { ShinyButton } from "@/registry/magicui/shiny-button";
 import CourseCard from '../ui/CourseCard';
 import { CardStack } from '../ui/CardStack';
@@ -8,6 +7,30 @@ import MentorAvatar from '../ui/MentorAvatar';
 import { Features } from './Features';
 import { Courses } from './Courses';
 import Testimonials from './Testimonials';
+import { cn } from '@/lib/utils';
+
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  children: React.ReactNode;
+  className?: string;
+}
+
+const GradientButton: React.FC<ButtonProps> = ({
+  children,
+  className,
+  ...props
+}) => {
+  return (
+    <button
+      className={cn(
+        "h-10 md:h-12 px-6 py-3 inline-flex items-center justify-center bg-gradient-to-r from-[#A656F7] to-[#3C81F6] font-medium text-white rounded-lg text-sm md:text-base",
+        className
+      )}
+      {...props}
+    >
+      {children}
+    </button>
+  );
+};
 
 const Hero = () => {
   const mentors = [
@@ -123,11 +146,9 @@ const Hero = () => {
             </div>
 
             <div className="flex flex-wrap gap-4">
-              <ShimmerButton
-                className="font-dmSans px-6 py-3 rounded-lg text-white font-medium"
-              >
+              <GradientButton>
                 Explore Our Courses
-              </ShimmerButton>
+              </GradientButton>
               <ShinyButton
                 className="font-dmSans px-6 py-3 rounded-lg border border-gray-700 text-white font-medium"
               >

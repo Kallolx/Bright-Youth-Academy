@@ -27,7 +27,7 @@ const BorderButton: React.FC<ButtonProps> = ({
   );
 };
 
-const ShimmerButton: React.FC<ButtonProps> = ({
+const GradientButton: React.FC<ButtonProps> = ({
   children,
   className,
   ...props
@@ -35,7 +35,7 @@ const ShimmerButton: React.FC<ButtonProps> = ({
   return (
     <button
       className={cn(
-        "h-8 md:h-10 w-20 md:w-24 inline-flex animate-shimmer items-center justify-center bg-gradient-to-r from-[#FF3BFF] via-[#5C24FF] to-[#FF3BFF] bg-[length:200%_100%] px-4 md:px-6 py-2 font-medium text-white transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 border border-slate-800 hover:shadow-lg rounded-lg text-sm md:text-base",
+        "h-8 md:h-10 w-20 md:w-24 inline-flex items-center justify-center bg-gradient-to-r from-[#A656F7] to-[#3C81F6] px-4 md:px-6 py-2 font-medium text-white rounded-lg text-sm md:text-base",
         className
       )}
       {...props}
@@ -150,7 +150,7 @@ const Navbar: React.FC = () => {
         {/* Auth Buttons - Desktop */}
         <div className="hidden md:flex items-center space-x-4">
           <BorderButton>Login</BorderButton>
-          <ShimmerButton>Signup</ShimmerButton>
+          <GradientButton>Signup</GradientButton>
         </div>
 
         {/* Mobile Menu */}
@@ -189,7 +189,7 @@ const Navbar: React.FC = () => {
             </div>
             <div className="flex flex-col space-y-3 pt-3 border-t border-white/10">
               <BorderButton className="w-full">Login</BorderButton>
-              <ShimmerButton className="w-full">Signup</ShimmerButton>
+              <GradientButton className="w-full">Signup</GradientButton>
             </div>
           </div>
         </div>

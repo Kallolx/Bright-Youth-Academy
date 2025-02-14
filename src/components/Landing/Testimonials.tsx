@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { Marquee } from "../../registry/magicui/marquee";
 import { useMemo } from "react";
+import React from "react";
 
 interface Testimonial {
   id: number;
@@ -105,43 +106,45 @@ const testimonials: Testimonial[][] = [
   ],
 ];
 
-const TestimonialCard = ({ name, role, content, image }: Testimonial) => {
-  // Get random social icon for this card
+const TestimonialCard = React.memo(({ name, role, content, image }: Testimonial) => {
   const socialIcon = useMemo(() => getRandomSocialIcon(), []);
+  const contentLines = content.split('\n\n');
+  const mobileContent = contentLines[0] + (contentLines[1] ? '\n\n' + contentLines[1] : '');
 
   return (
-    <figure className="relative w-full shrink-0 overflow-hidden rounded-lg border border-white/5 bg-[#303640]/50 p-3 sm:p-4 backdrop-blur-sm max-h-[250px] sm:max-h-none">
-      {/* Social Icon */}
-      <div className="absolute top-3 sm:top-4 right-3 sm:right-4">
+    <figure className="relative w-full shrink-0 overflow-hidden rounded-lg border border-white/5 bg-[#303640]/50 p-3 sm:p-4 backdrop-blur-sm">
+      <div className="flex items-center justify-between mb-3">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <img
+            src={image}
+            alt={name}
+            className="h-7 w-7 sm:h-8 sm:w-8 rounded-full object-cover border border-white/5"
+            loading="lazy"
+          />
+          <div className="flex flex-col">
+            <figcaption className="text-xs sm:text-sm font-medium text-white/90 font-dmSans">
+              {name}
+            </figcaption>
+            <p className="text-[10px] sm:text-xs text-white font-dmSans">{role}</p>
+          </div>
+        </div>
         <img
           src={socialIcon.icon}
           alt={socialIcon.alt}
           className="w-4 h-4 sm:w-5 sm:h-5 cursor-pointer hover:opacity-75 transition-opacity"
         />
       </div>
-      <div className="flex flex-row items-center gap-2 sm:gap-3">
-        <img
-          src={image}
-          alt={name}
-          className="h-7 w-7 sm:h-8 sm:w-8 rounded-full object-cover border border-white/5"
-          loading="lazy"
-        />
-        <div className="flex flex-col">
-          <figcaption className="text-xs sm:text-sm font-medium text-white/90 font-dmSans">
-            {name}
-          </figcaption>
-          <p className="text-[10px] sm:text-xs text-white font-dmSans">{role}</p>
-        </div>
-      </div>
-      <blockquote className="mt-2 sm:mt-3 text-xs sm:text-sm text-white/80 font-dmSans leading-relaxed line-clamp-6 sm:line-clamp-none">
-        {content}
+      <blockquote className="text-xs sm:text-sm text-white/80 font-dmSans leading-relaxed">
+        <span className="sm:hidden">{mobileContent}</span>
+        <span className="hidden sm:block">{content}</span>
       </blockquote>
     </figure>
   );
-};
+});
+
+TestimonialCard.displayName = "TestimonialCard";
 
 export default function Testimonials() {
-  // Memoize the testimonial columns to prevent unnecessary re-renders
   const testimonialColumns = useMemo(() => [
     [...testimonials[0], ...testimonials[0]],
     [...testimonials[1], ...testimonials[1]],
@@ -179,17 +182,17 @@ export default function Testimonials() {
         </motion.div>
 
         {/* Testimonials Marquee */}
-        <div className="relative flex flex-col sm:flex-row h-[520px] sm:h-[500px] lg:h-[640px] items-center justify-center gap-2 sm:gap-4 lg:gap-6 -mt-4 sm:mt-0">
+        <div className="relative flex flex-col sm:flex-row h-[500px] sm:h-[500px] lg:h-[640px] items-center justify-center gap-4 sm:gap-4 lg:gap-6">
           {/* First Column */}
-          <div className="w-[280px] sm:w-[320px] lg:w-[350px] h-full">
+          <div className="w-[300px] sm:w-[320px] lg:w-[350px] h-full">
             <Marquee 
               vertical 
               pauseOnHover 
-              className="[--duration:30s] h-full" 
+              className="[--duration:40s] h-full will-change-transform" 
               fade
             >
               {testimonialColumns[0].map((testimonial, idx) => (
-                <div key={`${testimonial.id}-${idx}`} className="mb-4 sm:mb-4 lg:mb-6">
+                <div key={`${testimonial.id}-${idx}`} className="mb-8 will-change-transform">
                   <TestimonialCard {...testimonial} />
                 </div>
               ))}
@@ -197,15 +200,15 @@ export default function Testimonials() {
           </div>
 
           {/* Middle Column - Slower Speed */}
-          <div className="w-[280px] sm:w-[320px] lg:w-[350px] h-full">
+          <div className="hidden sm:block w-[300px] sm:w-[320px] lg:w-[350px] h-full">
             <Marquee 
               vertical 
               pauseOnHover 
-              className="[--duration:50s] h-full" 
+              className="[--duration:60s] h-full will-change-transform" 
               fade
             >
               {testimonialColumns[1].map((testimonial, idx) => (
-                <div key={`${testimonial.id}-${idx}`} className="mb-4 sm:mb-4 lg:mb-6">
+                <div key={`${testimonial.id}-${idx}`} className="mb-8 will-change-transform">
                   <TestimonialCard {...testimonial} />
                 </div>
               ))}
@@ -213,15 +216,15 @@ export default function Testimonials() {
           </div>
 
           {/* Last Column */}
-          <div className="w-[280px] sm:w-[320px] lg:w-[350px] h-full">
+          <div className="hidden sm:block w-[300px] sm:w-[320px] lg:w-[350px] h-full">
             <Marquee 
               vertical 
               pauseOnHover 
-              className="[--duration:30s] h-full" 
+              className="[--duration:45s] h-full will-change-transform" 
               fade
             >
               {testimonialColumns[2].map((testimonial, idx) => (
-                <div key={`${testimonial.id}-${idx}`} className="mb-4 sm:mb-4 lg:mb-6">
+                <div key={`${testimonial.id}-${idx}`} className="mb-8 will-change-transform">
                   <TestimonialCard {...testimonial} />
                 </div>
               ))}
