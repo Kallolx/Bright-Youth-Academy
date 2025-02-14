@@ -70,8 +70,32 @@
   * {
     @apply border-border;
   }
+  
+  @property --scroll-duration {
+    syntax: '<time>';
+    initial-value: 800ms;
+    inherits: false;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    /* Customize scroll duration */
+    --scroll-duration: 1200ms;
+    scroll-behavior: smooth;
+    @supports (scroll-behavior: smooth) {
+      scroll-behavior: smooth;
+      transition-duration: var(--scroll-duration);
+    }
+  }
+  
   body {
     @apply bg-background text-foreground;
     background-color: black;
   }
+}
+
+/* Smooth scrolling optimization */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

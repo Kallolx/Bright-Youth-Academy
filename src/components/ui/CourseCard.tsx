@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import MentorAvatar from "./MentorAvatar";
+import AnimatedStat from "./AnimatedStat";
 
 interface CourseCardProps {
   image: string;
@@ -43,8 +44,12 @@ const CourseCard = ({
       )}
     >
       {/* Image Section */}
-      <div className="w-full h-[200px] overflow-visible rounded-sm">
-        <img src={image} alt={title} className="w-full h-full object-cover" />
+      <div className="w-full h-[200px] overflow-hidden rounded-lg">
+        <img
+          src={image}
+          alt={title}
+          className="w-full h-full object-cover rounded-lg"
+        />
       </div>
 
       {/* Tags Section */}
@@ -54,7 +59,8 @@ const CourseCard = ({
           Live Class
         </span>
         <span className=" inline-flex items-center gap-1 border border-[#393939] text-white px-4 py-1.5 text-xs font-dmSans rounded-sm">
-          {rating} <img src="/icons/star.svg" alt="star" className="w-3 h-3" /> ({ratingCount})
+          {rating} <img src="/icons/star.svg" alt="star" className="w-3 h-3" />{" "}
+          ({ratingCount})
         </span>
       </div>
 
@@ -63,33 +69,28 @@ const CourseCard = ({
         <h3 className="text-white font-medium text-base line-clamp-2 font-dmSans leading-snug min-h-[40px]">
           {title}
         </h3>
-
         {/* Stats */}
         <div className="space-y-2">
           <div className="grid grid-cols-2 gap-2">
-            <div className="bg-[#1D1C29] py-3 px-4 rounded-sm">
-              <div className="flex items-center gap-2 text-white">
-                <img src="/icons/book.svg" alt="book" className="w-4 h-4" />
-                <span className="text-sm font-dmSans">{lessons}+ Lessons</span>
-              </div>
-            </div>
-            <div className="bg-[#1D1C29] py-3 px-4 rounded-sm">
-              <div className="flex items-center gap-2 text-white">
-                <img src="/icons/doc.svg" alt="doc" className="w-4 h-4" />
-                <span className="text-sm font-dmSans">
-                  {projects}+ Projects
-                </span>
-              </div>
-            </div>
-            <div className="bg-[#1D1C29] py-3 px-4 rounded-sm">
-              <div className="flex items-center gap-2 text-white">
-                <img src="/icons/user.svg" alt="user" className="w-4 h-4" />
-                <span className="text-sm font-dmSans">
-                  {students}+ Students
-                </span>
-              </div>
-            </div>
-            <div className="bg-[#0D0C13] py-3 px-4"></div>
+            <AnimatedStat
+              icon="/icons/book.svg"
+              label="Lessons"
+              value={lessons}
+              className="rounded-lg"
+            />
+            <AnimatedStat
+              icon="/icons/doc.svg"
+              label="Projects"
+              value={projects}
+              className="rounded-lg"
+            />
+            <AnimatedStat
+              icon="/icons/user.svg"
+              label="Students"
+              value={students}
+              className="rounded-lg"
+            />
+            <div className="py-3 px-4"></div>
           </div>
         </div>
 
@@ -102,7 +103,6 @@ const CourseCard = ({
                 src={src}
                 name={mentorData[i].name}
                 role={mentorData[i].role}
-                
               />
             ))}
           </div>

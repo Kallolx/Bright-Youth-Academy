@@ -10,6 +10,7 @@ interface WordRotateProps {
   duration?: number;
   motionProps?: MotionProps;
   className?: string;
+  gradients?: string[];
 }
 
 export function WordRotate({
@@ -22,6 +23,7 @@ export function WordRotate({
     transition: { duration: 0.25, ease: "easeOut" },
   },
   className,
+  gradients,
 }: WordRotateProps) {
   const [index, setIndex] = useState(0);
 
@@ -35,16 +37,20 @@ export function WordRotate({
   }, [words, duration]);
 
   return (
-    <div className="overflow-hidden py-2">
+    <span className="inline-flex overflow-hidden">
       <AnimatePresence mode="wait">
-        <motion.h1
+        <motion.span
           key={words[index]}
-          className={cn(className)}
+          className={cn(
+            "inline-block",
+            className,
+            gradients && gradients[index]
+          )}
           {...motionProps}
         >
           {words[index]}
-        </motion.h1>
+        </motion.span>
       </AnimatePresence>
-    </div>
+    </span>
   );
 }

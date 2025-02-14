@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Marquee } from "../../registry/magicui/marquee";
 import { useMemo } from "react";
 import React from "react";
+import { SocialIcon } from 'react-social-icons';
 
 interface Testimonial {
   id: number;
@@ -15,10 +16,10 @@ interface Testimonial {
 // Helper function to get a random social media icon
 const getRandomSocialIcon = () => {
   const allIcons = [
-    { icon: "/icons/facebook.png", alt: "Facebook" },
-    { icon: "/icons/twitter.png", alt: "Twitter" },
-    { icon: "/icons/instagram.png", alt: "Instagram" },
-    { icon: "/icons/linkedin.png", alt: "LinkedIn" }
+    { url: "https://facebook.com", network: "facebook" },
+    { url: "https://twitter.com", network: "twitter" },
+    { url: "https://instagram.com", network: "instagram" },
+    { url: "https://linkedin.com", network: "linkedin" }
   ];
   
   const randomIndex = Math.floor(Math.random() * allIcons.length);
@@ -106,6 +107,7 @@ const testimonials: Testimonial[][] = [
   ],
 ];
 
+
 const TestimonialCard = React.memo(({ name, role, content, image }: Testimonial) => {
   const socialIcon = useMemo(() => getRandomSocialIcon(), []);
   const contentLines = content.split('\n\n');
@@ -128,10 +130,13 @@ const TestimonialCard = React.memo(({ name, role, content, image }: Testimonial)
             <p className="text-[10px] sm:text-xs text-white font-dmSans">{role}</p>
           </div>
         </div>
-        <img
-          src={socialIcon.icon}
-          alt={socialIcon.alt}
-          className="w-4 h-4 sm:w-5 sm:h-5 cursor-pointer hover:opacity-75 transition-opacity"
+        <SocialIcon 
+          url={socialIcon.url}
+          network={socialIcon.network}
+          style={{ width: 24, height: 24 }}
+          bgColor="transparent"
+          fgColor="#ffffff"
+          className="opacity-60 hover:opacity-100 transition-opacity"
         />
       </div>
       <blockquote className="text-xs sm:text-sm text-white/80 font-dmSans leading-relaxed">
