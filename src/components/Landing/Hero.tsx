@@ -230,7 +230,7 @@ const Hero = () => {
                 </div>
                 <div className="w-full sm:w-auto">
                   <GradientBorderButton className="w-full sm:w-auto py-2 ">
-                    Explore Our Courses
+                    Learn More
                   </GradientBorderButton>
                 </div>
               </motion.div>
