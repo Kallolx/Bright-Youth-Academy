@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import MentorAvatar from "./MentorAvatar";
 import AnimatedStat from "./AnimatedStat";
-
+import GradientButton from "./GradientButton";
 interface CourseCardProps {
   image: string;
   title: string;
@@ -33,14 +33,13 @@ const CourseCard = ({
   rating,
   ratingCount,
   mentors,
-  onLearnMore,
   className,
 }: CourseCardProps) => {
   return (
     <motion.div
-      whileHover={{ 
+      whileHover={{
         scale: 1.05,
-        transition: { duration: 0.2, ease: "easeOut" }
+        transition: { duration: 0.2, ease: "easeOut" },
       }}
       className={cn(
         "bg-[#0D0C13] border-[1px] border-white/50 w-full max-w-sm rounded-xl",
@@ -65,8 +64,9 @@ const CourseCard = ({
             Live Class
           </span>
           <span className="inline-flex items-center gap-1 border border-[#393939] text-white px-4 py-1.5 text-xs font-dmSans rounded-sm">
-            {rating} <img src="/icons/star.svg" alt="star" className="w-3 h-3" />{" "}
-            ({ratingCount})
+            {rating}{" "}
+            <img src="/icons/star.svg" alt="star" className="w-3 h-3" /> (
+            {ratingCount})
           </span>
         </div>
 
@@ -80,22 +80,22 @@ const CourseCard = ({
             <div className="grid grid-cols-2 gap-2">
               <AnimatedStat
                 icon="/icons/book.svg"
-                label="Lessons"
-                value={lessons}
                 className="rounded-lg !px-2 sm:!px-4 whitespace-nowrap"
-              />
+              >
+                {lessons} + Lessons
+              </AnimatedStat>
               <AnimatedStat
                 icon="/icons/doc.svg"
-                label="Projects"
-                value={projects}
                 className="rounded-lg !px-2 sm:!px-4 whitespace-nowrap"
-              />
+              >
+                {projects} + Projects
+              </AnimatedStat>
               <AnimatedStat
                 icon="/icons/user.svg"
-                label="Students"
-                value={students}
                 className="rounded-lg !px-2 sm:!px-4 whitespace-nowrap"
-              />
+              >
+                {students} + Students
+              </AnimatedStat>
               <div className="py-3"></div>
             </div>
           </div>
@@ -112,14 +112,11 @@ const CourseCard = ({
                 />
               ))}
             </div>
-
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              onClick={onLearnMore}
-              className="h-[38px] bg-gradient-to-r from-[#FC00FF] to-[#00DBDE] hover:opacity-90 transition-opacity text-white px-4 py-1.5 font-dmSans text-sm rounded-sm"
-            >
-              Learn More
-            </motion.button>
+            <div>
+              <GradientButton className="inline-block ">
+                Learn More
+              </GradientButton>
+            </div>
           </div>
         </div>
       </div>

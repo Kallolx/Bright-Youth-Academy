@@ -3,9 +3,8 @@ import { useMotionTemplate, useMotionValue, motion } from "framer-motion";
 import { useState } from "react";
 
 interface AnimatedStatProps {
+  children: React.ReactNode;
   icon: string;
-  label: string;
-  value: string | number;
   iconAlt?: string;
   className?: string;
 }
@@ -20,9 +19,8 @@ const BorderGradient = () => {
 };
 
 export const AnimatedStat = ({
+  children,
   icon,
-  label,
-  value,
   iconAlt,
   className,
 }: AnimatedStatProps) => {
@@ -56,13 +54,13 @@ export const AnimatedStat = ({
       >
         <div
           className={cn(
-            "relative flex items-center gap-2 text-white bg-[#1D1C29] px-4 py-2 rounded-sm transition duration-300",
+            "relative flex items-center gap-2 text-white bg-[#1D1C29] px-5 py-2 rounded-sm transition duration-300",
             className
           )}
         >
-          <img src={icon} alt={iconAlt || label} className="w-4 h-4" />
+          <img src={icon} alt={iconAlt} className="w-4 h-4" />
           <span className="text-sm font-dmSans">
-            {value}+ {label}
+          {children} 
           </span>
         </div>
       </motion.div>

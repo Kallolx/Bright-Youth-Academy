@@ -1,50 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
-
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  children: React.ReactNode;
-  className?: string;
-}
-
-const BorderButton: React.FC<ButtonProps> = ({
-  children,
-  className,
-  ...props
-}) => {
-  return (
-    <button
-      className={cn(
-        "relative inline-flex h-8 md:h-10 w-20 md:w-24 overflow-hidden rounded-lg p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50",
-        className
-      )}
-      {...props}
-    >
-      <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-      <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-lg bg-black px-4 md:px-8 py-2 text-sm md:text-base font-medium text-white backdrop-blur-3xl">
-        {children}
-      </span>
-    </button>
-  );
-};
-
-const GradientButton: React.FC<ButtonProps> = ({
-  children,
-  className,
-  ...props
-}) => {
-  return (
-    <button
-      className={cn(
-        "h-8 md:h-10 w-20 md:w-24 inline-flex items-center justify-center bg-gradient-to-r from-[#A656F7] to-[#3C81F6] px-4 md:px-6 py-2 font-medium text-white rounded-lg text-sm md:text-base",
-        className
-      )}
-      {...props}
-    >
-      {children}
-    </button>
-  );
-};
-
+import GradientBorderButton from "../ui/GradientBorderButton";
+import GradientButton from "../ui/GradientButton";
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -120,7 +77,7 @@ const Navbar: React.FC = () => {
         </button>
 
         {/* Navigation Links - Desktop */}
-        <div className="hidden md:flex items-center space-x-8">
+        <div className="text-[18px] hidden md:flex items-center space-x-8">
           <a
             href="#"
             className="text-white hover:text-purple-400 transition-colors font-dmSans"
@@ -149,8 +106,12 @@ const Navbar: React.FC = () => {
 
         {/* Auth Buttons - Desktop */}
         <div className="hidden md:flex items-center space-x-4">
-          <BorderButton>Login</BorderButton>
-          <GradientButton>Signup</GradientButton>
+          <GradientBorderButton>
+            Login
+          </GradientBorderButton>
+          <GradientButton>
+            Signup
+          </GradientButton>
         </div>
 
         {/* Mobile Menu */}
@@ -188,8 +149,12 @@ const Navbar: React.FC = () => {
               </a>
             </div>
             <div className="flex flex-row justify-center gap-3 pt-3 border-t border-white/10">
-              <BorderButton className="flex-1">Login</BorderButton>
-              <GradientButton className="flex-1">Signup</GradientButton>
+              <button className="flex-1 bg-white text-black rounded-md px-4 py-2">
+                Login
+              </button>
+              <button className="flex-1 bg-gradient-to-r from-[#A656F7] to-[#3C81F6] text-white rounded-md px-4 py-2">
+                Signup
+              </button>
             </div>
           </div>
         </div>
