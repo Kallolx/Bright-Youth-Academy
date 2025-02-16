@@ -229,7 +229,7 @@ const Hero = () => {
                   </GradientButton>
                 </div>
                 <div className="w-full sm:w-auto">
-                  <GradientBorderButton className="w-full sm:w-auto py-2 ">
+                  <GradientBorderButton className="w-full sm:w-auto" btnClassName="w-full sm:w-auto">
                     Learn More
                   </GradientBorderButton>
                 </div>

@@ -3,23 +3,24 @@ import { cn } from "@/lib/utils";
 interface GradientBorderButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   className?: string;
+  btnClassName?: string;
 }
 
-export const GradientBorderButton = ({ children, className, ...props }: GradientBorderButtonProps) => {
+export const GradientBorderButton = ({ children, className, btnClassName, ...props }: GradientBorderButtonProps) => {
   return (
     <button
       className={cn(
-        "font-dmSans font-medium bg-[#0D0C13] rounded-md text-white px-6 py-2 relative",
-        "before:w-full before:h-full before:scale-x-[1.02] before:scale-y-[1.05]  before:absolute before:top-[50%] before:left-[50%]",
-        "before:-z-10 before:translate-x-[-50%] before:translate-y-[-50%] ",
-        "before:from-[#A656F7] before:to-[#3C81F6] before:bg-gradient-to-r",
-        "before:rounded-md",
-        "transition-all duration-300",
-        className
+        "font-dmSans font-medium text-white p-[1px] relative rounded-md from-[#A656F7] to-[#3C81F6] bg-gradient-to-r",
+        btnClassName
       )}
       {...props}
     >
+      <span className={cn(
+        "inline-block bg-[#0D0C13] px-6 py-2 rounded-md",
+        className 
+      )}>
       {children}
+      </span>     
     </button>
   );
 };
