@@ -174,14 +174,14 @@ const Hero = () => {
                 variants={item}
                 className="space-y-2 sm:space-y-3 md:space-y-4"
               >
-                <h1 className="text-[3rem] sm:text-[2.5rem] md:text-[3rem] lg:text-[3.5rem] font-extrabold text-white font-dmSans leading-[1.2] sm:leading-[1.15]">
-                  Grow Your a <AuroraText>Skills</AuroraText>{" "}
-                  <br className="block sm:hidden my-1" />
+                <h1 className="font-geist text-[3rem] sm:text-[2.5rem] md:text-[3rem] lg:text-[3.5rem] font-extrabold text-white font-dmSans leading-[1.2] sm:leading-[1.15]">
+                  Grow Your <AuroraText>Skill</AuroraText>{" "}
+                  <br/>
                   For a Better Career
                 </h1>
                 <motion.p
                   variants={item}
-                  className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-400 font-dmSans max-w-xl sm:max-w-2xl mx-auto lg:mx-0"
+                  className="text-sm sm:text-base md:text-lg  text-white font-dmSans max-w-xl sm:max-w-2xl mx-auto lg:mx-0"
                 >
                   Master In-Demand Skills, Unlock Limitless Opportunities
                   <br className="hidden sm:block" />& Create the Career of Your
@@ -213,8 +213,8 @@ const Hero = () => {
                   <p className="font-dmSans text-white font-bold text-sm sm:text-base md:text-lg">
                     20+
                   </p>
-                  <p className="font-dmSans text-gray-400 text-xs sm:text-sm">
-                    Expert mentor
+                  <p className="font-dmSans text-white text-xs sm:text-sm">
+                    Expert mentors
                   </p>
                 </motion.div>
               </motion.div>

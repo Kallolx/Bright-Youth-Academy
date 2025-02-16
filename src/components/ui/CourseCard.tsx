@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import MentorAvatar from "./MentorAvatar";
 import AnimatedStat from "./AnimatedStat";
@@ -36,14 +35,10 @@ const CourseCard = ({
   className,
 }: CourseCardProps) => {
   return (
-    <motion.div
-      whileHover={{
-        scale: 1.05,
-        transition: { duration: 0.2, ease: "easeOut" },
-      }}
+    <div
       className={cn(
         "bg-[#0D0C13] border-[1px] border-white/50 w-full max-w-sm rounded-xl",
-        "transition-all duration-200 cursor-pointer",
+        "transition-all duration-200 cursor-pointer group",
         className
       )}
     >
@@ -120,7 +115,7 @@ const CourseCard = ({
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

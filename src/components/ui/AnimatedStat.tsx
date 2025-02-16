@@ -36,7 +36,7 @@ export const AnimatedStat = ({
   }
 
   return (
-    <div className="relative group/btn">
+    <div className="relative group/btn ">
       <motion.div
         style={{
           background: useMotionTemplate`
@@ -54,7 +54,7 @@ export const AnimatedStat = ({
       >
         <div
           className={cn(
-            "relative flex items-center gap-2 text-white bg-[#1D1C29] px-5 py-2 rounded-sm transition duration-300",
+            "relative flex items-center gap-2 text-white bg-[#1D1C29] px-5 py-2 rounded-sm transition duration-300 border-[1px] border-white/10",
             className
           )}
         >

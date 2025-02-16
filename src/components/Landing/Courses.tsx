@@ -2,34 +2,36 @@
 
 import { motion } from "framer-motion";
 import CourseCard from "../ui/CourseCard";
-import { Background } from '../ui/backgrounGrid';
+import { Background } from "../ui/backgrounGrid";
+import GradientBorderButton from "../ui/GradientBorderButton";
+import { MoveRight } from "lucide-react";
 
 const mentors = [
   {
     image: "/images/mentors/1.png",
     name: "Rejown Jisahan",
-    role: "Software Engineer"
+    role: "Software Engineer",
   },
   {
     image: "/images/mentors/2.png",
     name: "David Mitchell",
-    role: "Senior Developer"
+    role: "Senior Developer",
   },
   {
     image: "/images/mentors/3.png",
     name: "Sarah Anderson",
-    role: "UI/UX Designer"
+    role: "UI/UX Designer",
   },
   {
     image: "/images/mentors/4.png",
     name: "Emma Wilson",
-    role: "Product Designer"
+    role: "Product Designer",
   },
   {
     image: "/images/mentors/5.png",
     name: "Michael Brown",
-    role: "Full Stack Developer"
-  }
+    role: "Full Stack Developer",
+  },
 ];
 
 const courses = [
@@ -40,7 +42,7 @@ const courses = [
     projects: 10,
     students: 150,
     rating: "4.8",
-    ratingCount: "1.2k"
+    ratingCount: "1.2k",
   },
   {
     image: "/images/card2.png",
@@ -49,7 +51,7 @@ const courses = [
     projects: 15,
     students: 200,
     rating: "4.9",
-    ratingCount: "2.1k"
+    ratingCount: "2.1k",
   },
   {
     image: "/images/card3.png",
@@ -58,7 +60,7 @@ const courses = [
     projects: 12,
     students: 180,
     rating: "4.7",
-    ratingCount: "980"
+    ratingCount: "980",
   },
   {
     image: "/images/card4.png",
@@ -67,7 +69,7 @@ const courses = [
     projects: 8,
     students: 120,
     rating: "4.6",
-    ratingCount: "850"
+    ratingCount: "850",
   },
   {
     image: "/images/card5.png",
@@ -76,7 +78,7 @@ const courses = [
     projects: 14,
     students: 160,
     rating: "4.8",
-    ratingCount: "1.5k"
+    ratingCount: "1.5k",
   },
   {
     image: "/images/card2.png",
@@ -85,8 +87,8 @@ const courses = [
     projects: 20,
     students: 250,
     rating: "4.9",
-    ratingCount: "2.5k"
-  }
+    ratingCount: "2.5k",
+  },
 ];
 
 export const Courses = () => {
@@ -108,7 +110,7 @@ export const Courses = () => {
           <div className="absolute inset-0 z-[1]">
             {/* Left circle gradient */}
             <div className="absolute left-0 top-[30%] sm:top-[60%] -translate-y-1/2 w-[600px] sm:w-[800px] h-[600px] sm:h-[800px] bg-[radial-gradient(circle_at_center,_#B133FF_0%,_transparent_70%)] opacity-50 blur-[50px] -translate-x-1/2" />
-            
+
             {/* Right circle gradient */}
             <div className="absolute right-0 top-[75%] sm:top-[60%] -translate-y-1/2 w-[600px] sm:w-[800px] h-[600px] sm:h-[800px] bg-[radial-gradient(circle_at_center,_#EF0BFD_0%,_transparent_70%)] opacity-50 blur-[50px] translate-x-1/2" />
           </div>
@@ -127,7 +129,8 @@ export const Courses = () => {
               Join Our Courses 🎓
             </h2>
             <p className="text-sm sm:text-base md:text-lg text-gray-400 font-dmSans">
-              Choose from our wide range of courses and start your journey today ✨
+              Choose from our wide range of courses and start your journey today
+              ✨
             </p>
           </motion.div>
 
@@ -150,13 +153,19 @@ export const Courses = () => {
                   students={course.students}
                   rating={course.rating}
                   ratingCount={course.ratingCount}
-                  mentors={mentors.map(m => m.image)}
+                  mentors={mentors.map((m) => m.image)}
                 />
               </motion.div>
             ))}
+          </div>
+          <div className="flex pt-10  justify-center">
+            <GradientBorderButton className="inline-flex items-center gap-2 px-10">
+              View all
+              <MoveRight className="w-4 h-4" />
+            </GradientBorderButton>
           </div>
         </div>
       </section>
     </div>
   );
-}; 
+};

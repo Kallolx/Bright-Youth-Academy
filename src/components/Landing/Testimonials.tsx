@@ -176,7 +176,7 @@ const Testimonials = () => {
 
   // Create a continuous array by repeating reviews 2 times (reduced from 4 for optimization)
   const createContinuousArray = (arr: typeof reviews) => {
-    return [...arr, ...arr, ...arr, ...arr];
+    return [...arr, ...arr];
   };
 
   return (
