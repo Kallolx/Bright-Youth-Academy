@@ -224,12 +224,12 @@ const Hero = () => {
                 className="flex flex-col sm:flex-row items-center justify-center pt-12 lg:pt-0  lg:justify-start gap-3 sm:gap-4 md:gap-6"
               >
                 <div className="w-full sm:w-auto">
-                  <GradientButton className="w-full sm:w-auto py-[calc(1rem+2px)] sm:py-3">
+                  <GradientButton className="w-full sm:w-auto py-[calc(0.5rem+2px)]">
                     Explore Our Courses
                   </GradientButton>
                 </div>
                 <div className="w-full sm:w-auto">
-                  <GradientBorderButton className="w-full sm:w-auto py-4 sm:py-3 ">
+                  <GradientBorderButton className="w-full sm:w-auto py-2 ">
                     Explore Our Courses
                   </GradientBorderButton>
                 </div>
