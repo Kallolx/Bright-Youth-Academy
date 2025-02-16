@@ -10,7 +10,11 @@ export default {
   			dmSans: [
   				'DM Sans',
   				'sans-serif'
-  			]
+  			],
+			geist: [
+				'Geist',
+				'sans-serif'
+			]
   		},
   		animation: {
   			shimmer: 'shimmer 2s linear infinite',

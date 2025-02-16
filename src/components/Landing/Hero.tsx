@@ -174,7 +174,7 @@ const Hero = () => {
                 variants={item}
                 className="space-y-2 sm:space-y-3 md:space-y-4"
               >
-                <h1 className="font-geist text-[3rem] sm:text-[2.5rem] md:text-[3rem] lg:text-[3.5rem] font-extrabold text-white font-dmSans leading-[1.2] sm:leading-[1.15]">
+                <h1 className="font-geist text-[3rem] sm:text-[2.5rem] md:text-[3rem] lg:text-[3.5rem] text-white font-extrabold leading-[1.2] sm:leading-[1.15]">
                   Grow Your <AuroraText>Skill</AuroraText>{" "}
                   <br/>
                   For a Better Career
@@ -210,7 +210,7 @@ const Hero = () => {
                   ))}
                 </div>
                 <motion.div variants={item}>
-                  <p className="font-dmSans text-white font-bold text-sm sm:text-base md:text-lg">
+                  <p className="font-geist text-white font-bold text-sm sm:text-base md:text-lg">
                     20+
                   </p>
                   <p className="font-dmSans text-white text-xs sm:text-sm">
