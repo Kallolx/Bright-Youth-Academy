@@ -29,15 +29,15 @@ export const CardStack = ({ items, interval = 6000 }: CardStackProps) => {
             <motion.div
               key={idx}
               animate={{
-                scale: isActive ? 1 : 0.92,
-                y: position * -25,
-                x: position * 25,
+                scale: isActive ? 1 : 0.95,
+                y: position * -6,
+                x: position * 14,
                 zIndex: items.length - position,
-                opacity: isActive ? 1 : 0.7,
+                opacity: isActive ? 1 : 1,
               }}
               transition={{
-                duration: 0.6,
-                ease: "easeInOut",
+                duration: 0.4,
+                ease: "easeOut",
               }}
               className="absolute origin-top-right"
               style={{
@@ -68,7 +68,7 @@ export const CardStack = ({ items, interval = 6000 }: CardStackProps) => {
                 scale: idx === currentIndex ? 1.2 : 1,
                 opacity: idx === currentIndex ? 1 : 0.7,
               }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.2 }}
               style={{ willChange: "scale, opacity" }}
             />
 
@@ -77,7 +77,7 @@ export const CardStack = ({ items, interval = 6000 }: CardStackProps) => {
               <motion.div
                 className="absolute w-2 h-2 rounded-full bg-gray-400"
                 animate={{ scale: 1 }}
-                transition={{ duration: 0.3 }}
+                transition={{ duration: 0.2 }}
               />
             )}
           </motion.button>

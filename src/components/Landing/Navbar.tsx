@@ -187,9 +187,9 @@ const Navbar: React.FC = () => {
                 Testimonials
               </a>
             </div>
-            <div className="flex flex-col space-y-3 pt-3 border-t border-white/10">
-              <BorderButton className="w-full">Login</BorderButton>
-              <GradientButton className="w-full">Signup</GradientButton>
+            <div className="flex flex-row justify-center gap-3 pt-3 border-t border-white/10">
+              <BorderButton className="flex-1">Login</BorderButton>
+              <GradientButton className="flex-1">Signup</GradientButton>
             </div>
           </div>
         </div>

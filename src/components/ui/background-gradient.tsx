@@ -19,7 +19,7 @@ export const BackgroundGradient: React.FC<BackgroundGradientProps> = ({
       )}
       {...props}
     >
-      <div className="absolute -inset-px bg-gradient-to-r from-[#EF0BFD] to-[#B133FF] bg-opacity-70 rounded-xl opacity-0 group-hover/card:opacity-100 blur transition duration-1000 group-hover:duration-200" />
+      <div className="absolute -inset-px bg-gradient-to-r from-[#EF0BFD] to-[#B133FF] bg-opacity-90 rounded-xl opacity-0 group-hover/card:opacity-100 blur transition duration-1000 group-hover:duration-200" />
       <div className="relative">{children}</div>
     </div>
   );

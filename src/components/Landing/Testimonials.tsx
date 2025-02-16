@@ -1,242 +1,272 @@
 "use client";
+
+import { useRef, useState } from "react";
+import { Review } from "@/components/ui/Review";
+import { splitArray } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { Marquee } from "../../registry/magicui/marquee";
-import { useMemo } from "react";
-import React from "react";
-import { SocialIcon } from 'react-social-icons';
+import { Background } from '../ui/backgrounGrid';
 
-interface Testimonial {
-  id: number;
-  name: string;
-  role: string;
-  content: string;
-  image: string;
-}
-
-// Helper function to get a random social media icon
-const getRandomSocialIcon = () => {
-  const allIcons = [
-    { url: "https://facebook.com", network: "facebook" },
-    { url: "https://twitter.com", network: "twitter" },
-    { url: "https://instagram.com", network: "instagram" },
-    { url: "https://linkedin.com", network: "linkedin" }
-  ];
-  
-  const randomIndex = Math.floor(Math.random() * allIcons.length);
-  return allIcons[randomIndex];
-};
-
-const testimonials: Testimonial[][] = [
-  [
-    {
-      id: 1,
-      name: "Jane Cooper ✨",
-      role: "Product Designer",
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
-      content:
-        "🚀 The AI revolution is here, and I'm all for it!\n\nThis tool has transformed my design workflow completely. What used to take hours now takes minutes.\n\nIt's like having a brilliant assistant who never sleeps! 💡",
-    },
-    {
-      id: 2,
-      name: "Wade Warren",
-      role: "UX Researcher 🔍",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
-      content:
-        "🎯 As a researcher, data analysis was always time-consuming.\n\nNow, with this AI, I can process user feedback in seconds! My team's productivity has increased by 300% since we started using it.\n\nThe results speak for themselves! 📊",
-    },
-    {
-      id: 3,
-      name: "Esther Howard 🌟",
-      role: "Senior Designer",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",
-      content:
-        "💫 Whether I'm brainstorming new concepts or refining existing designs, this AI tool has become my go-to companion.\n\nIt's like having a creative partner who's always ready to collaborate!\n\nThe possibilities are truly endless with this technology. ✨",
-    },
-  ],
-  [
-    {
-      id: 4,
-      name: "Theresa Webb",
-      role: "Design Lead 👑",
-      image: "https://images.unsplash.com/photo-1619895862022-09114b41f16f",
-      content:
-        "🎨 Leading a design team requires constant innovation and efficiency.\n\nThis AI tool has revolutionized our entire design process!\n\n✨ Team collaboration has improved significantly, and our design iterations are faster than ever. The best part? Everyone on the team loves using it! 🚀",
-    },
-    {
-      id: 5,
-      name: "Darrell Steward 🔥",
-      role: "Product Designer",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
-      content:
-        "💪 Game-changer alert!\n\nThis AI doesn't just save time; it pushes my creative boundaries.\n\nEvery day, I discover new ways to leverage its capabilities. It's become an essential part of my design toolkit! 🛠️",
-    },
-    {
-      id: 6,
-      name: "Jacob Jones",
-      role: "UI Engineer 💻",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e",
-      content:
-        "🌈 The intersection of design and engineering has never been smoother!\n\nThis AI helps me translate design concepts into code with unprecedented accuracy.\n\n🎉 The best investment our team has made this year, hands down!",
-    },
-  ],
-  [
-    {
-      id: 7,
-      name: "Dianne Russell ⭐",
-      role: "Product Designer",
-      image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb",
-      content:
-        "✨ From wireframes to high-fidelity prototypes, this AI has transformed every aspect of my design process.\n\nThe way it understands context and provides relevant suggestions is mind-blowing!\n\n💫 It's like having a design mentor available 24/7!",
-    },
-    {
-      id: 8,
-      name: "Jerome Bell",
-      role: "Design System Lead 🎨",
-      image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6",
-      content:
-        "🏗️ Managing a design system used to be overwhelming.\n\nNow, with this AI, maintaining consistency across hundreds of components is a breeze!\n\n🌟 The automation capabilities have saved our team countless hours of manual work. Simply incredible! ✨",
-    },
-    {
-      id: 9,
-      name: "Annette Black 💫",
-      role: "Product Designer",
-      image: "https://images.unsplash.com/photo-1517841905240-472988babdf9",
-      content:
-        "🎉 This AI tool is a game-changer!\n\nIt's not just about speed – it's about the quality of work it enables me to produce.\n\n✨ I feel like I'm designing at the speed of thought!",
-    },
-  ],
+const reviews = [
+  {
+    title: "It really works",
+    body: "I downloaded Pocket today and turned $5000 into $25,000 in half an hour.",
+    author: "Sarah Johnson",
+    role: "Frontend Developer",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&auto=format&fit=crop&crop=face",
+    rating: 5,
+  },
+  {
+    title: "You need this app",
+    body: "I didn't understand the stock market at all before Pocket. I still don't, but at least I'm rich now.",
+    author: "Michael Chen",
+    role: "UI/UX Designer",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&auto=format&fit=crop&crop=face",
+    rating: 5,
+  },
+  {
+    title: "Life changing app",
+    body: "Pocket makes it so easy to win big in the stock market that I can't believe it's actually legal.",
+    author: "Emily Rodriguez",
+    role: "Product Manager",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&auto=format&fit=crop&crop=face",
+    rating: 5,
+  },
+  {
+    title: "Better than expected",
+    body: "I barely made any money investing in mutual funds. With Pocket, I'm doubling my net-worth every single month.",
+    author: "David Kim",
+    role: "Software Engineer",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&auto=format&fit=crop&crop=face",
+    rating: 5,
+  },
+  {
+    title: "Simply amazing",
+    body: "Started using this app last month, and I've already seen incredible results. The interface is intuitive and the features are powerful.",
+    author: "Lisa Wang",
+    role: "Data Scientist",
+    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&auto=format&fit=crop&crop=face",
+    rating: 5,
+  },
+  {
+    title: "Game changer",
+    body: "This platform has completely transformed how I approach learning. The community support is incredible.",
+    author: "James Wilson",
+    role: "Full Stack Developer",
+    image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=400&h=400&auto=format&fit=crop&crop=face",
+    rating: 5,
+  },
+  {
+    title: "Exceeded expectations",
+    body: "The quality of content and the learning experience is unmatched. Highly recommend to anyone serious about their career.",
+    author: "Anna Martinez",
+    role: "Mobile Developer",
+    image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=400&auto=format&fit=crop&crop=face",
+    rating: 5,
+  },
+  {
+    title: "Worth every penny",
+    body: "The return on investment has been incredible. Not just in terms of skills, but also career opportunities.",
+    author: "Tom Anderson",
+    role: "DevOps Engineer",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&auto=format&fit=crop&crop=face",
+    rating: 5,
+  },
+  {
+    title: "Outstanding platform",
+    body: "The mentorship and guidance provided here is world-class. It's like having a personal career coach.",
+    author: "Rachel Lee",
+    role: "Backend Developer",
+    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&auto=format&fit=crop&crop=face",
+    rating: 5,
+  },
+  {
+    title: "It really works",
+    body: "I downloaded Pocket today and turned $5000 into $25,000 in half an hour.",
+    author: "Sarah Johnson",
+    role: "Frontend Developer",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&auto=format&fit=crop&crop=face",
+    rating: 5,
+  },
+  {
+    title: "You need this app",
+    body: "I didn't understand the stock market at all before Pocket. I still don't, but at least I'm rich now.",
+    author: "Michael Chen",
+    role: "UI/UX Designer",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&auto=format&fit=crop&crop=face",
+    rating: 5,
+  },
+  {
+    title: "Life changing app",
+    body: "Pocket makes it so easy to win big in the stock market that I can't believe it's actually legal.",
+    author: "Emily Rodriguez",
+    role: "Product Manager",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&auto=format&fit=crop&crop=face",
+    rating: 5,
+  },
+  {
+    title: "Better than expected",
+    body: "I barely made any money investing in mutual funds. With Pocket, I'm doubling my net-worth every single month.",
+    author: "David Kim",
+    role: "Software Engineer",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&auto=format&fit=crop&crop=face",
+    rating: 5,
+  },
+  {
+    title: "Simply amazing",
+    body: "Started using this app last month, and I've already seen incredible results. The interface is intuitive and the features are powerful.",
+    author: "Lisa Wang",
+    role: "Data Scientist",
+    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&auto=format&fit=crop&crop=face",
+    rating: 5,
+  },
+  {
+    title: "Game changer",
+    body: "This platform has completely transformed how I approach learning. The community support is incredible.",
+    author: "James Wilson",
+    role: "Full Stack Developer",
+    image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=400&h=400&auto=format&fit=crop&crop=face",
+    rating: 5,
+  },
+  {
+    title: "Exceeded expectations",
+    body: "The quality of content and the learning experience is unmatched. Highly recommend to anyone serious about their career.",
+    author: "Anna Martinez",
+    role: "Mobile Developer",
+    image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=400&auto=format&fit=crop&crop=face",
+    rating: 5,
+  },
+  {
+    title: "Worth every penny",
+    body: "The return on investment has been incredible. Not just in terms of skills, but also career opportunities.",
+    author: "Tom Anderson",
+    role: "DevOps Engineer",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&auto=format&fit=crop&crop=face",
+    rating: 5,
+  },
+  {
+    title: "Outstanding platform",
+    body: "The mentorship and guidance provided here is world-class. It's like having a personal career coach.",
+    author: "Rachel Lee",
+    role: "Backend Developer",
+    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&auto=format&fit=crop&crop=face",
+    rating: 5,
+  },
 ];
 
+// Increase the duration significantly for slower animation
+const MARQUEE_DURATION = 120; // 120 seconds for a very slow scroll
 
-const TestimonialCard = React.memo(({ name, role, content, image }: Testimonial) => {
-  const socialIcon = useMemo(() => getRandomSocialIcon(), []);
-  const contentLines = content.split('\n\n');
-  const mobileContent = contentLines[0] + (contentLines[1] ? '\n\n' + contentLines[1] : '');
+const Testimonials = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [pausedColumns, setPausedColumns] = useState<number[]>([]);
+
+  // Split reviews into 3 columns with different speeds
+  const reviewColumns = splitArray(reviews, 3);
+
+  const handlePauseColumn = (columnIndex: number) => {
+    if (!pausedColumns.includes(columnIndex)) {
+      setPausedColumns([...pausedColumns, columnIndex]);
+    }
+  };
+
+  const handleResumeColumn = (columnIndex: number) => {
+    setPausedColumns(pausedColumns.filter(col => col !== columnIndex));
+  };
+
+  // Create a continuous array by repeating reviews 2 times (reduced from 4 for optimization)
+  const createContinuousArray = (arr: typeof reviews) => {
+    return [...arr, ...arr, ...arr, ...arr];
+  };
 
   return (
-    <figure className="relative w-full shrink-0 overflow-hidden rounded-lg border border-white/5 bg-[#303640]/50 p-3 sm:p-4 backdrop-blur-sm">
-      <div className="flex items-center justify-between mb-3">
-        <div className="flex items-center gap-2 sm:gap-3">
-          <img
-            src={image}
-            alt={name}
-            className="h-7 w-7 sm:h-8 sm:w-8 rounded-full object-cover border border-white/5"
-            loading="lazy"
-          />
-          <div className="flex flex-col">
-            <figcaption className="text-xs sm:text-sm font-medium text-white/90 font-dmSans">
-              {name}
-            </figcaption>
-            <p className="text-[10px] sm:text-xs text-white font-dmSans">{role}</p>
-          </div>
-        </div>
-        <SocialIcon 
-          url={socialIcon.url}
-          network={socialIcon.network}
-          style={{ width: 24, height: 24 }}
-          bgColor="transparent"
-          fgColor="#ffffff"
-          className="opacity-60 hover:opacity-100 transition-opacity"
-        />
+    <section 
+      ref={sectionRef}
+      className="relative py-20 bg-gradient-to-b from-[#0D0C13] via-[#0D0C13] to-[#0D0C13]"
+    >
+      {/* Blending overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0D0C13]/80 to-transparent" />
+
+      {/* Background Grid with reduced opacity */}
+      <div className="absolute inset-0 overflow-hidden opacity-30">
+        <Background />
       </div>
-      <blockquote className="text-xs sm:text-sm text-white/80 font-dmSans leading-relaxed">
-        <span className="sm:hidden">{mobileContent}</span>
-        <span className="hidden sm:block">{content}</span>
-      </blockquote>
-    </figure>
-  );
-});
 
-TestimonialCard.displayName = "TestimonialCard";
-
-export default function Testimonials() {
-  const testimonialColumns = useMemo(() => [
-    [...testimonials[0], ...testimonials[0]],
-    [...testimonials[1], ...testimonials[1]],
-    [...testimonials[2], ...testimonials[2]]
-  ], []);
-
-  return (
-    <section className="min-h-screen bg-[#0D0C13] relative overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0">
+      {/* Background gradients with adjusted positions and opacity */}
+      <div className="absolute inset-0 z-[1]">
         {/* Left circle gradient */}
-        <div className="fixed left-0 top-0 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-[radial-gradient(circle_at_center,_#B133FF_0%,_transparent_70%)] opacity-30 blur-[100px]" />
+        <div className="absolute left-0 top-1/4 -translate-y-1/2 w-[300px] sm:w-[400px] lg:w-[500px] h-[300px] sm:h-[400px] lg:h-[500px] bg-[radial-gradient(circle_at_center,_#B133FF_0%,_transparent_70%)] opacity-15 blur-[130px]" />
         
         {/* Right circle gradient */}
-        <div className="fixed right-0 top-0 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-[radial-gradient(circle_at_center,_#EF0BFD_0%,_transparent_70%)] opacity-30 blur-[100px]" />
+        <div className="absolute right-0 top-1/3 w-[300px] sm:w-[400px] lg:w-[500px] h-[300px] sm:h-[400px] lg:h-[500px] bg-[radial-gradient(circle_at_center,_#EF0BFD_0%,_transparent_70%)] opacity-15 blur-[130px]" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20 relative z-10">
-        {/* Section Title */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-10 sm:mb-16"
-        >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white font-dmSans mb-3 sm:mb-4 px-4">
-            Loved by people all over the universe
+      {/* Main content */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white font-dmSans mb-4">
+            Students' Feedback 💬
           </h2>
-          <p className="text-gray-400 text-sm sm:text-base md:text-lg font-dmSans px-4">
-            Every AI is used by millions of people around the globe.
-            <br className="hidden sm:block" />
-            Our APIs have fan bases and people fight for us over twitter.
+          <p className="text-gray-400 text-base sm:text-lg font-dmSans max-w-2xl mx-auto">
+            We value the opinions of our beloved students. They are our motivation to keep improving and delivering value 🌟
           </p>
-        </motion.div>
+        </div>
 
-        {/* Testimonials Marquee */}
-        <div className="relative flex flex-col sm:flex-row h-[500px] sm:h-[500px] lg:h-[640px] items-center justify-center gap-4 sm:gap-4 lg:gap-6">
-          {/* First Column */}
-          <div className="w-[300px] sm:w-[320px] lg:w-[350px] h-full">
-            <Marquee 
-              vertical 
-              pauseOnHover 
-              className="[--duration:40s] h-full will-change-transform" 
-              fade
+        {/* Review Grid with Marquee Columns */}
+        <div
+          ref={containerRef}
+          className="relative -mx-4 mt-16 grid h-[49rem] max-h-[150vh] grid-cols-1 md:grid-cols-3 items-start gap-8 overflow-hidden px-4 sm:mt-20"
+        >
+          {reviewColumns.map((columnReviews, columnIndex) => (
+            <motion.div 
+              key={columnIndex}
+              initial={{ 
+                opacity: 0, 
+                x: columnIndex === 1 ? 0 : columnIndex === 0 ? 100 : -100,
+                y: columnIndex === 1 ? 50 : 0
+              }}
+              animate={{ 
+                opacity: 1, 
+                x: 0,
+                y: columnIndex === 1 ? 50 : 0
+              }}
+              transition={{
+                duration: 0.8,
+                delay: columnIndex * 0.2,
+                ease: [0.16, 1, 0.3, 1]
+              }}
+              className="relative h-full overflow-hidden"
+              style={{ 
+                '--duration': `${MARQUEE_DURATION + columnIndex * 20}s`,
+                maskImage: 'linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)',
+                WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)'
+              } as any}
             >
-              {testimonialColumns[0].map((testimonial, idx) => (
-                <div key={`${testimonial.id}-${idx}`} className="mb-8 will-change-transform">
-                  <TestimonialCard {...testimonial} />
-                </div>
-              ))}
-            </Marquee>
-          </div>
-
-          {/* Middle Column - Slower Speed */}
-          <div className="hidden sm:block w-[300px] sm:w-[320px] lg:w-[350px] h-full">
-            <Marquee 
-              vertical 
-              pauseOnHover 
-              className="[--duration:60s] h-full will-change-transform" 
-              fade
-            >
-              {testimonialColumns[1].map((testimonial, idx) => (
-                <div key={`${testimonial.id}-${idx}`} className="mb-8 will-change-transform">
-                  <TestimonialCard {...testimonial} />
-                </div>
-              ))}
-            </Marquee>
-          </div>
-
-          {/* Last Column */}
-          <div className="hidden sm:block w-[300px] sm:w-[320px] lg:w-[350px] h-full">
-            <Marquee 
-              vertical 
-              pauseOnHover 
-              className="[--duration:45s] h-full will-change-transform" 
-              fade
-            >
-              {testimonialColumns[2].map((testimonial, idx) => (
-                <div key={`${testimonial.id}-${idx}`} className="mb-8 will-change-transform">
-                  <TestimonialCard {...testimonial} />
-                </div>
-              ))}
-            </Marquee>
-          </div>
+              <div 
+                className="flex flex-col gap-6 animate-marquee-vertical"
+                style={{
+                  animationPlayState: pausedColumns.includes(columnIndex) ? 'paused' : 'running',
+                  animationDuration: `${MARQUEE_DURATION + columnIndex * 20}s`,
+                  animationDelay: `${columnIndex * 0.5}s`
+                }}
+              >
+                {createContinuousArray(columnReviews).map((review, reviewIndex) => (
+                  <Review
+                    key={reviewIndex}
+                    {...review}
+                    className={`transform ${columnIndex === 1 ? 'translate-y-[50%]' : ''}`}
+                    onHover={() => handlePauseColumn(columnIndex)}
+                    onLeave={() => handleResumeColumn(columnIndex)}
+                  />
+                ))}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
   );
-}
+};
+
+export default Testimonials; 

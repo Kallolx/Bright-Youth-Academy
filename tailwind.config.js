@@ -16,7 +16,8 @@ export default {
   			shimmer: 'shimmer 2s linear infinite',
   			'border-width': 'border-width 3s infinite alternate',
   			marquee: 'marquee var(--duration) linear infinite',
-  			'marquee-vertical': 'marquee-vertical var(--duration) linear infinite'
+  			'marquee-vertical': 'marquee-vertical var(--duration) linear infinite',
+  			'marquee-vertical-reverse': 'marquee-vertical-reverse var(--duration) linear infinite'
   		},
   		keyframes: {
   			shimmer: {
@@ -64,7 +65,15 @@ export default {
   					transform: 'translateY(0)'
   				},
   				'100%': {
+  					transform: 'translateY(-25%)'
+  				}
+  			},
+  			'marquee-vertical-reverse': {
+  				'0%': {
   					transform: 'translateY(-100%)'
+  				},
+  				'100%': {
+  					transform: 'translateY(0)'
   				}
   			},
   			'aurora-1': {

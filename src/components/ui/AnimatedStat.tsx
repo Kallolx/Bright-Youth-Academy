@@ -56,7 +56,7 @@ export const AnimatedStat = ({
       >
         <div
           className={cn(
-            "relative flex items-center gap-2 text-white bg-[#1D1C29] px-4 py-3 rounded-sm transition duration-300",
+            "relative flex items-center gap-2 text-white bg-[#1D1C29] px-4 py-2 rounded-sm transition duration-300",
             className
           )}
         >
