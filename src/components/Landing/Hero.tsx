@@ -175,8 +175,7 @@ const Hero = () => {
                 className="space-y-2 sm:space-y-3 md:space-y-4"
               >
                 <h1 className="font-geist text-[3rem] sm:text-[2.5rem] md:text-[3rem] lg:text-[3.5rem] text-white font-extrabold leading-[1.2] sm:leading-[1.15]">
-                  Grow Your <AuroraText>Skill</AuroraText>{" "}
-                  <br/>
+                  Grow Your <AuroraText>Skill</AuroraText> <br />
                   For a Better Career
                 </h1>
                 <motion.p
@@ -224,12 +223,16 @@ const Hero = () => {
                 className="flex flex-col sm:flex-row items-center justify-center pt-12 lg:pt-0  lg:justify-start gap-3 sm:gap-4 md:gap-6"
               >
                 <div className="w-full sm:w-auto">
-                  <GradientButton className="w-full sm:w-auto py-[calc(0.5rem+2px)]">
+                  <GradientButton
+                  >
                     Explore Our Courses
                   </GradientButton>
                 </div>
                 <div className="w-full sm:w-auto">
-                  <GradientBorderButton className="w-full sm:w-auto" btnClassName="w-full sm:w-auto">
+                  <GradientBorderButton
+                    className="w-full sm:w-auto"
+                    btnClassName="w-full sm:w-auto"
+                  >
                     Learn More
                   </GradientBorderButton>
                 </div>

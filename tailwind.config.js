@@ -11,19 +11,26 @@ export default {
   				'DM Sans',
   				'sans-serif'
   			],
-			geist: [
-				'Geist',
-				'sans-serif'
-			]
+  			geist: [
+  				'Geist',
+  				'sans-serif'
+  			]
   		},
   		animation: {
   			shimmer: 'shimmer 2s linear infinite',
   			'border-width': 'border-width 3s infinite alternate',
   			marquee: 'marquee var(--duration) linear infinite',
   			'marquee-vertical': 'marquee-vertical var(--duration) linear infinite',
-  			'marquee-vertical-reverse': 'marquee-vertical-reverse var(--duration) linear infinite'
+  			'marquee-vertical-reverse': 'marquee-vertical-reverse var(--duration) linear infinite',
+  			rippling: "rippling var(--duration) ease-out",
   		},
   		keyframes: {
+			ripple: {
+				'0%': { opacity: "1" },
+				'100%': { transform: "scale(2)", opacity: "0" },
+			  },
+			},
+			animation: {
   			shimmer: {
   				from: {
   					backgroundPosition: '200% 0'
@@ -134,6 +141,15 @@ export default {
   				'90%': {
   					bottom: '50%',
   					right: '25%'
+  				}
+  			},
+  			rippling: {
+  				'0%': {
+  					opacity: '1'
+  				},
+  				'100%': {
+  					transform: 'scale(2)',
+  					opacity: '0'
   				}
   			}
   		},
