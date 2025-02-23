@@ -220,7 +220,7 @@ const Hero = () => {
 
               <motion.div
                 variants={item}
-                className="pt-3 md:pt-0 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 md:gap-6"
+                className="pt-3 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 md:gap-6"
               >
                 <div className="w-full max-w-[203px] sm:w-auto">
                   <GradientButton

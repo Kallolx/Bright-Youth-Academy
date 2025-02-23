@@ -67,7 +67,7 @@ const CourseCard = ({
 
         {/* Content Section */}
         <div className="space-y-4">
-          <h3 className="text-white font-semibold text-base line-clamp-2 font-dmSans leading-snug min-h-[40px]">
+          <h3 className="font-geist text-white font-semibold text-base line-clamp-2 leading-snug min-h-[40px]">
             {title}
           </h3>
           {/* Stats */}
