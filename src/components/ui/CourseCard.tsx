@@ -43,8 +43,8 @@ const CourseCard = ({
       )}
     >
       {/* Image Section */}
-      <div className="p-3">
-        <div className="w-full h-[200px] overflow-hidden rounded-lg group">
+      <div className="p-4">
+        <div className="w-full h-[250px] overflow-hidden rounded-lg group">
           <img
             src={image}
             alt={title}
@@ -53,7 +53,7 @@ const CourseCard = ({
         </div>
 
         {/* Tags Section */}
-        <div className="flex justify-between items-center mt-4 mb-6">
+        <div className="flex justify-between items-center my-4">
           <span className="bg-[#393939] text-white px-4 py-1.5 text-xs font-dmSans flex items-center gap-1.5 rounded-sm">
             <span className="w-2 h-2 bg-green-500 rounded-full inline-block"></span>
             Live Class
@@ -67,12 +67,12 @@ const CourseCard = ({
 
         {/* Content Section */}
         <div className="space-y-4">
-          <h3 className="text-white font-medium text-base line-clamp-2 font-dmSans leading-snug min-h-[40px]">
+          <h3 className="text-white font-semibold text-base line-clamp-2 font-dmSans leading-snug min-h-[40px]">
             {title}
           </h3>
           {/* Stats */}
           <div>
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-2 gap-3">
               <AnimatedStat
                 icon="/icons/book.svg"
                 className="rounded-lg !px-2 sm:!px-4 whitespace-nowrap"
