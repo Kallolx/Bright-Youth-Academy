@@ -24,7 +24,7 @@ export const AnimatedStat = ({
   iconAlt,
   className,
 }: AnimatedStatProps) => {
-  const radius = 100;
+  const radius = 20;
   const [visible, setVisible] = useState(false);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -50,7 +50,7 @@ export const AnimatedStat = ({
         onMouseMove={handleMouseMove}
         onMouseEnter={() => setVisible(true)}
         onMouseLeave={() => setVisible(false)}
-        className="p-[2px] rounded-sm transition duration-300"
+        className="rounded-sm transition duration-300"
       >
         <div
           className={cn(

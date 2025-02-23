@@ -145,7 +145,7 @@ const Hero = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 0.5, scale: 1 }}
           transition={{ duration: 1.2, delay: 0.4 }}
-          className="absolute top-[30%] -left-[20%]  w-[400px] h-[400px]  bg-[#EF0BFD] blur-[100px]"
+          className="absolute top-[30%] -left-1/4 md:-left-[20%] w-[200px] md:w-[400px] h-[200px] md:h-[400px] bg-[#EF0BFD] blur-[100px]"
         />
 
         {/* Right circle gradient */}
@@ -153,13 +153,13 @@ const Hero = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 0.5, scale: 1 }}
           transition={{ duration: 1.2, delay: 0.5 }}
-          className="absolute top-[30%] -right-[25%] 2xl:-right-[20%]  w-[400px] h-[400px]  bg-[#B133FF] blur-[110px]"
+          className="absolute top-[30%] -right-1/4 md:-right-[25%] 2xl:-right-[20%] w-[200px] md:w-[400px] h-[200px] md:h-[400px] bg-[#B133FF] blur-[110px]"
         />
       </motion.div>
 
       {/* Content Container */}
       <div className="relative z-[2]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 md:pt-20 lg:pt-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-16 md:pt-20 lg:pt-24">
           {/* Hero Content */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-20 items-center">
             {/* Left content */}
@@ -168,15 +168,15 @@ const Hero = () => {
               variants={container}
               initial="hidden"
               animate="show"
-              className="space-y-4 sm:space-y-5 md:space-y-6 lg:space-y-8 text-center lg:text-left"
+              className="space-y-6 md:space-y-8 text-center lg:text-left"
             >
               <motion.div
                 variants={item}
                 className="space-y-2 sm:space-y-3 md:space-y-4"
               >
-                <h1 className="font-geist text-[3rem] sm:text-[2.5rem] md:text-[3rem] lg:text-[3.5rem] text-white font-extrabold leading-[1.2] sm:leading-[1.15]">
+                <h1 className="font-geist text-[2.3rem] md:text-[3rem] lg:text-[3.5rem] text-white font-extrabold leading-[1.2] sm:leading-[1.15]">
                   Grow Your <AuroraText>Skill</AuroraText> <br />
-                  For a Better Career
+                  Secure The Future
                 </h1>
                 <motion.p
                   variants={item}
@@ -220,15 +220,16 @@ const Hero = () => {
 
               <motion.div
                 variants={item}
-                className="flex flex-col sm:flex-row items-center justify-center pt-12 lg:pt-0  lg:justify-start gap-3 sm:gap-4 md:gap-6"
+                className="pt-3 md:pt-0 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 md:gap-6"
               >
-                <div className="w-full sm:w-auto">
+                <div className="w-full max-w-[203px] sm:w-auto">
                   <GradientButton
+                    className="w-full sm:w-auto"
                   >
                     Explore Our Courses
                   </GradientButton>
                 </div>
-                <div className="w-full sm:w-auto">
+                <div className="w-full max-w-[203px] sm:w-auto">
                   <GradientBorderButton
                     className="w-full sm:w-auto"
                     btnClassName="w-full sm:w-auto"
@@ -244,11 +245,9 @@ const Hero = () => {
               variants={slideFromRight}
               initial="hidden"
               animate="show"
-              className="hidden md:flex h-[450px] lg:h-[500px] xl:h-[600px] relative pt-4 sm:pt-6 lg:pt-8 justify-center"
+              className="hidden md:flex relative pt-4 sm:pt-6 lg:pt-8 justify-center"
             >
-              <div className="w-full">
                 <CardStack items={courseCards} interval={6000} />
-              </div>
             </motion.div>
           </div>
         </div>

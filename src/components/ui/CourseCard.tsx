@@ -71,32 +71,30 @@ const CourseCard = ({
             {title}
           </h3>
           {/* Stats */}
-          <div>
-            <div className="grid grid-cols-2 gap-3">
-              <AnimatedStat
-                icon="/icons/book.svg"
-                className="rounded-lg !px-2 sm:!px-4 whitespace-nowrap"
-              >
-                {lessons} + Lessons
-              </AnimatedStat>
-              <AnimatedStat
-                icon="/icons/doc.svg"
-                className="rounded-lg !px-2 sm:!px-4 whitespace-nowrap"
-              >
-                {projects} + Projects
-              </AnimatedStat>
-              <AnimatedStat
-                icon="/icons/user.svg"
-                className="rounded-lg !px-2 sm:!px-4 whitespace-nowrap"
-              >
-                {students} + Students
-              </AnimatedStat>
-              <div className="py-3"></div>
-            </div>
+          <div className="grid grid-cols-2 gap-2">
+            <AnimatedStat
+              icon="/icons/book.svg"
+              className="rounded-lg !px-2 sm:!px-4 whitespace-nowrap"
+            >
+              {lessons} + Lessons
+            </AnimatedStat>
+            <AnimatedStat
+              icon="/icons/doc.svg"
+              className="rounded-lg !px-2 sm:!px-4 whitespace-nowrap"
+            >
+              {projects} + Projects
+            </AnimatedStat>
+            <AnimatedStat
+              icon="/icons/user.svg"
+              className="rounded-lg !px-2 sm:!px-4 whitespace-nowrap"
+            >
+              {students} + Students
+            </AnimatedStat>
+            <div className="py-3"></div>
           </div>
 
           {/* Footer */}
-          <div className="flex items-center justify-between pt-2">
+          <div className="flex items-center justify-between">
             <div className="flex -space-x-2 relative">
               {mentors.slice(0, 3).map((src, i) => (
                 <MentorAvatar

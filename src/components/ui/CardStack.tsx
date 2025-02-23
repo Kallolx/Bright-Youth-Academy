@@ -18,9 +18,10 @@ export const CardStack = ({ items, interval = 6000 }: CardStackProps) => {
   }, [items.length, interval]);
 
   return (
-    <div className="relative h-full w-full">
+    <div>
       {/* Stacked Cards */}
-      <div className="relative h-full w-full flex justify-center">
+      <div className="h-[560px] w-[412px] flex justify-center">
+        <div className="relative h-full w-full">
         {items.map((item, idx) => {
           const isActive = idx === currentIndex;
           const position = (idx - currentIndex + items.length) % items.length;
@@ -49,6 +50,7 @@ export const CardStack = ({ items, interval = 6000 }: CardStackProps) => {
             </motion.div>
           );
         })}
+        </div>
       </div>
       {/* Dots Indicator */}
       <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 flex items-center justify-center gap-3">
