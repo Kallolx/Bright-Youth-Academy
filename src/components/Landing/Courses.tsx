@@ -125,10 +125,10 @@ export const Courses = () => {
             transition={{ duration: 0.5 }}
             className="text-center mb-8 sm:mb-10"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white font-dmSans mb-2 sm:mb-3">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white  mb-2 sm:mb-3">
               Join Our Courses 🎓
             </h2>
-            <p className="text-sm sm:text-base md:text-lg text-gray-400 font-dmSans">
+            <p className="text-sm sm:text-base md:text-lg text-gray-400 ">
               Choose from our wide range of courses and start your journey today
               ✨
             </p>

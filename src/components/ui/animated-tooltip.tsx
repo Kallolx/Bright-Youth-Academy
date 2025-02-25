@@ -55,10 +55,10 @@ export const AnimatedTooltip = ({ items }: TooltipProps) => {
                 <div className="relative flex flex-col items-center justify-center">
                   <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-[20px] h-[20px] rotate-45 bg-white" />
                   <div className="relative z-10 bg-white backdrop-blur-sm px-4 py-2 rounded-md">
-                    <p className="font-dmSans text-sm text-black font-semibold whitespace-nowrap">
+                    <p className=" text-sm text-black font-semibold whitespace-nowrap">
                       {item.name}
                     </p>
-                    <p className="font-dmSans text-xs text-black/60 whitespace-nowrap">
+                    <p className=" text-xs text-black/60 whitespace-nowrap">
                       {item.designation}
                     </p>
                   </div>

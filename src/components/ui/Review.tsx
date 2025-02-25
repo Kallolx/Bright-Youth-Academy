@@ -70,12 +70,12 @@ export const Review = ({
         </div>
 
         {/* Title with emoji */}
-        <h3 className="text-lg font-medium text-white font-dmSans mt-2">
+        <h3 className="text-lg font-medium text-white  mt-2">
           {title} ✨
         </h3>
 
         {/* Review body with emoji */}
-        <p className="text-sm text-gray-400 font-dmSans mt-2">
+        <p className="text-sm text-gray-400  mt-2">
           {body} 🚀
         </p>
 
@@ -87,10 +87,10 @@ export const Review = ({
             className="w-10 h-10 rounded-full object-cover border-2 border-[#A656F7]/50 hover:border-[#A656F7] transition-colors"
           />
           <div>
-            <p className="text-sm font-medium text-[#A656F7] font-dmSans">
+            <p className="text-sm font-medium text-[#A656F7] ">
               {author} 👋
             </p>
-            <p className="text-xs text-gray-500 font-dmSans">
+            <p className="text-xs text-gray-500 ">
               {role} 💫
             </p>
           </div>

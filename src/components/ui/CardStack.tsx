@@ -20,7 +20,7 @@ export const CardStack = ({ items, interval = 6000 }: CardStackProps) => {
   return (
     <div>
       {/* Stacked Cards */}
-      <div className="h-[560px] w-[412px] flex justify-center">
+      <div className="h-[570px] w-[412px] flex justify-center">
         <div className="relative h-full w-full">
         {items.map((item, idx) => {
           const isActive = idx === currentIndex;

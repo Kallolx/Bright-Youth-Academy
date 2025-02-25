@@ -174,13 +174,13 @@ const Hero = () => {
                 variants={item}
                 className="space-y-2 sm:space-y-3 md:space-y-4"
               >
-                <h1 className="font-geist text-[2.3rem] md:text-[3rem] lg:text-[3.5rem] text-white font-extrabold leading-[1.2] sm:leading-[1.15]">
+                <h1 className=" text-[2.3rem] md:text-[3rem] lg:text-[3.5rem] text-white font-extrabold leading-[1.2] sm:leading-[1.15]">
                   Grow Your <AuroraText>Skill</AuroraText> <br />
                   Secure The Future
                 </h1>
                 <motion.p
                   variants={item}
-                  className="text-sm sm:text-base md:text-lg  text-white font-dmSans max-w-xl sm:max-w-2xl mx-auto lg:mx-0"
+                  className="text-sm sm:text-base md:text-lg  text-white  max-w-xl sm:max-w-2xl mx-auto lg:mx-0"
                 >
                   Master In-Demand Skills, Unlock Limitless Opportunities
                   <br className="hidden sm:block" />& Create the Career of Your
@@ -209,10 +209,10 @@ const Hero = () => {
                   ))}
                 </div>
                 <motion.div variants={item}>
-                  <p className="font-geist text-white font-bold text-sm sm:text-base md:text-lg">
+                  <p className=" text-white font-bold text-sm sm:text-base md:text-lg">
                     20+
                   </p>
-                  <p className="font-dmSans text-white text-xs sm:text-sm">
+                  <p className=" text-white text-xs sm:text-sm">
                     Expert mentors
                   </p>
                 </motion.div>

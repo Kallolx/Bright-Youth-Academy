@@ -38,10 +38,10 @@ const Navbar: React.FC = () => {
             className="h-8 w-8 md:h-10 md:w-10 rounded-full object-cover"
           />
           <div>
-            <h1 className="text-white font-bold text-lg md:text-xl font-dmSans">
+            <h1 className="text-white font-bold text-lg md:text-xl">
               Bright Youth Academy
             </h1>
-            <p className="text-gray-300 text-xs md:text-sm font-dmSans">
+            <p className="text-gray-300 text-xs md:text-sm">
               Be Yourself & Find Peace
             </p>
           </div>
@@ -77,28 +77,28 @@ const Navbar: React.FC = () => {
         </button>
 
         {/* Navigation Links - Desktop */}
-        <div className="text-[18px] hidden md:flex items-center space-x-8">
+        <div className=" text-lg font-medium hidden md:flex items-center space-x-8">
           <a
             href="#"
-            className="text-white hover:text-purple-400 transition-colors font-dmSans"
+            className="text-white hover:text-purple-400 transition-colors"
           >
             Home
           </a>
           <a
             href="#"
-            className="text-white hover:text-purple-400 transition-colors font-dmSans"
+            className="text-white hover:text-purple-400 transition-colors"
           >
             About
           </a>
           <a
             href="#"
-            className="text-white hover:text-purple-400 transition-colors font-dmSans"
+            className="text-white hover:text-purple-400 transition-colors"
           >
             Course
           </a>
           <a
             href="#"
-            className="text-white hover:text-purple-400 transition-colors font-dmSans"
+            className="text-white hover:text-purple-400 transition-colors"
           >
             Testimonials
           </a>
@@ -106,12 +106,8 @@ const Navbar: React.FC = () => {
 
         {/* Auth Buttons - Desktop */}
         <div className="hidden md:flex items-center space-x-4">
-          <GradientBorderButton>
-            Login
-          </GradientBorderButton>
-          <GradientButton>
-            Signup
-          </GradientButton>
+          <GradientBorderButton>Login</GradientBorderButton>
+          <GradientButton>Signup</GradientButton>
         </div>
 
         {/* Mobile Menu */}
@@ -125,25 +121,25 @@ const Navbar: React.FC = () => {
             <div className="flex flex-col space-y-3">
               <a
                 href="#"
-                className="text-white hover:text-purple-400 transition-colors font-dmSans"
+                className="text-white hover:text-purple-400 transition-colors "
               >
                 Home
               </a>
               <a
                 href="#"
-                className="text-white hover:text-purple-400 transition-colors font-dmSans"
+                className="text-white hover:text-purple-400 transition-colors "
               >
                 About
               </a>
               <a
                 href="#"
-                className="text-white hover:text-purple-400 transition-colors font-dmSans"
+                className="text-white hover:text-purple-400 transition-colors "
               >
                 Course
               </a>
               <a
                 href="#"
-                className="text-white hover:text-purple-400 transition-colors font-dmSans"
+                className="text-white hover:text-purple-400 transition-colors "
               >
                 Testimonials
               </a>

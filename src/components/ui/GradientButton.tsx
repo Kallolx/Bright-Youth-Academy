@@ -23,7 +23,7 @@ export const GradientButton = React.forwardRef<
       <button
         ref={ref}
         className={cn(
-          "group relative overflow-hidden font-dmSans font-medium text-white rounded-md px-6 py-2",
+          "group relative overflow-hidden  font-medium text-white rounded-md px-6 py-2",
           "transform transition-all duration-200",
           "bg-gradient-to-r from-[#A656F7] to-[#3C81F6]",
           "active:scale-[0.98]",

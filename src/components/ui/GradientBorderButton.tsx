@@ -10,7 +10,7 @@ export const GradientBorderButton = ({ children, className, btnClassName, ...pro
   return (
     <button
       className={cn(
-        "font-dmSans font-medium text-white p-[1px] relative rounded-md from-[#A656F7] to-[#3C81F6] bg-gradient-to-r",
+        " font-medium text-white p-[1px] relative rounded-md from-[#A656F7] to-[#3C81F6] bg-gradient-to-r",
         btnClassName
       )}
       {...props}

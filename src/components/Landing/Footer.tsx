@@ -15,15 +15,15 @@ const Footer = () => {
                 className="h-8 w-8 sm:h-10 sm:w-10 rounded-full object-cover"
               />
               <div>
-                <h1 className="text-white font-bold text-lg sm:text-xl font-dmSans">
+                <h1 className="text-white font-bold text-lg sm:text-xl ">
                   BRIGHT YOUTH ACADEMY
                 </h1>
-                <p className="text-gray-400 text-xs sm:text-sm font-dmSans">
+                <p className="text-gray-400 text-xs sm:text-sm ">
                   BE YOURSELF & FIND PEACE
                 </p>
               </div>
             </div>
-            <p className="text-gray-300 text-sm font-dmSans max-w-sm mx-auto lg:mx-0">
+            <p className="text-gray-300 text-sm  max-w-sm mx-auto lg:mx-0">
               Bright Youth Academy is Bangladesh's leading Up-skilling & Job
               Placement Platform.
             </p>
@@ -54,7 +54,7 @@ const Footer = () => {
           <div className="flex flex-col sm:flex-row justify-between lg:justify-end lg:w-2/3 gap-10 sm:gap-20 lg:gap-32">
             {/* Contact Info - Center */}
             <div className="space-y-4 text-center sm:text-left">
-              <h2 className="text-white text-lg font-bold font-dmSans">
+              <h2 className="text-white text-lg font-bold ">
                 Contact Info
               </h2>
               <div className="flex flex-col space-y-4">
@@ -64,7 +64,7 @@ const Footer = () => {
                     alt="Location"
                     className="w-5 h-5 mt-1 opacity-60"
                   />
-                  <p className="text-gray-300 text-sm font-dmSans">
+                  <p className="text-gray-300 text-sm ">
                     Chandrima Model Town,
                     <br />
                     Mohammadpur - 1027
@@ -76,7 +76,7 @@ const Footer = () => {
                     alt="Phone"
                     className="w-5 h-5 opacity-60"
                   />
-                  <p className="text-gray-300 text-sm font-dmSans">
+                  <p className="text-gray-300 text-sm ">
                     +8801849597210
                   </p>
                 </div>
@@ -86,7 +86,7 @@ const Footer = () => {
                     alt="Email"
                     className="w-5 h-5 opacity-60"
                   />
-                  <p className="text-gray-300 text-sm font-dmSans">
+                  <p className="text-gray-300 text-sm ">
                     Support@domain.com
                   </p>
                 </div>
@@ -95,7 +95,7 @@ const Footer = () => {
 
             {/* Quick Links - Right */}
             <div className="space-y-4 text-center sm:text-left">
-              <h2 className="text-white text-lg font-bold font-dmSans">
+              <h2 className="text-white text-lg font-bold ">
                 Quick Links
               </h2>
               <div className="flex flex-col space-y-3">
@@ -108,7 +108,7 @@ const Footer = () => {
                   <Link
                     key={link.to}
                     to={link.to}
-                    className="text-gray-300 hover:text-white transition-colors text-sm font-dmSans inline-flex items-center justify-center sm:justify-start group"
+                    className="text-gray-300 hover:text-white transition-colors text-sm  inline-flex items-center justify-center sm:justify-start group"
                   >
                     <span className="w-0 group-hover:w-2 h-0.5 bg-white mr-0 group-hover:mr-2 transition-all duration-300" />
                     {link.label}
@@ -125,24 +125,24 @@ const Footer = () => {
             <div className="flex flex-wrap justify-center sm:justify-start gap-4 sm:gap-8">
               <Link
                 to="/terms"
-                className="text-gray-400 hover:text-white transition-colors text-sm font-dmSans"
+                className="text-gray-400 hover:text-white transition-colors text-sm "
               >
                 Terms of Use
               </Link>
               <Link
                 to="/privacy"
-                className="text-gray-400 hover:text-white transition-colors text-sm font-dmSans"
+                className="text-gray-400 hover:text-white transition-colors text-sm "
               >
                 Privacy Policy
               </Link>
               <Link
                 to="/report"
-                className="text-gray-400 hover:text-white transition-colors text-sm font-dmSans"
+                className="text-gray-400 hover:text-white transition-colors text-sm "
               >
                 Report an Issue
               </Link>
             </div>
-            <p className="text-gray-400 text-sm font-dmSans text-center sm:text-right">
+            <p className="text-gray-400 text-sm  text-center sm:text-right">
               @2025 All Rights Reserved to Bright Youth Academy
             </p>
           </div>

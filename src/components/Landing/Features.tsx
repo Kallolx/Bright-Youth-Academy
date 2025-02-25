@@ -49,9 +49,9 @@ const Card = ({ title, description, icon }: CardProps) => {
             <img src={icon} alt={title} className="w-12 xs:w-14 sm:w-16 lg:w-20 h-12 xs:h-14 sm:h-16 lg:h-20 object-contain" />
           </div>
           {/* Centered Title */}
-          <h3 className="font-geist text-lg xs:text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">{title}</h3>
+          <h3 className=" text-lg xs:text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">{title}</h3>
           {/* Centered Description */}
-          <p className="font-dmSans text-xs xs:text-sm sm:text-base text-gray-400 max-w-[90%]">{description}</p>
+          <p className=" text-xs xs:text-sm sm:text-base text-gray-400 max-w-[90%]">{description}</p>
         </div>
         <GlowingEffect
           blur={0}

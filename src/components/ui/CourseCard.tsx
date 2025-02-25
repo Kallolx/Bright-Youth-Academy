@@ -54,11 +54,11 @@ const CourseCard = ({
 
         {/* Tags Section */}
         <div className="flex justify-between items-center my-4">
-          <span className="bg-[#393939] text-white px-4 py-1.5 text-xs font-dmSans flex items-center gap-1.5 rounded-sm">
+          <span className="bg-[#393939] text-white px-4 py-1.5 text-xs  flex items-center gap-1.5 rounded-sm">
             <span className="w-2 h-2 bg-green-500 rounded-full inline-block"></span>
             Live Class
           </span>
-          <span className="inline-flex items-center gap-1 border border-[#393939] text-white px-4 py-1.5 text-xs font-dmSans rounded-sm">
+          <span className="inline-flex items-center gap-1 border border-[#393939] text-white px-4 py-1.5 text-xs  rounded-sm">
             {rating}{" "}
             <img src="/icons/star.svg" alt="star" className="w-3 h-3" /> (
             {ratingCount})
@@ -66,12 +66,12 @@ const CourseCard = ({
         </div>
 
         {/* Content Section */}
-        <div className="space-y-4">
-          <h3 className="font-geist text-white font-semibold text-base line-clamp-2 leading-snug min-h-[40px]">
+        <div className="space-y-6">
+          <h3 className=" text-white font-semibold text-base line-clamp-2 leading-snug">
             {title}
           </h3>
           {/* Stats */}
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-2 gap-3">
             <AnimatedStat
               icon="/icons/book.svg"
               className="rounded-lg !px-2 sm:!px-4 whitespace-nowrap"

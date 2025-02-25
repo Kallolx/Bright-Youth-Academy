@@ -54,12 +54,12 @@ export const AnimatedStat = ({
       >
         <div
           className={cn(
-            "relative flex items-center gap-2 text-white bg-[#1D1C29] px-5 py-2 rounded-sm transition duration-300 border-[1px] border-white/10",
+            "relative flex items-center gap-2 text-gray-200 bg-[#1D1C29] px-5 py-[6px] rounded-sm transition duration-300 border-[1px] border-white/10",
             className
           )}
         >
           <img src={icon} alt={iconAlt} className="w-4 h-4" />
-          <span className="text-sm font-dmSans">
+          <span className="text-sm ">
           {children} 
           </span>
         </div>

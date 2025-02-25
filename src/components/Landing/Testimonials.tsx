@@ -205,10 +205,10 @@ const Testimonials = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white font-dmSans mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white  mb-4">
             Students' Feedback 💬
           </h2>
-          <p className="text-gray-400 text-base sm:text-lg font-dmSans max-w-2xl mx-auto">
+          <p className="text-gray-400 text-base sm:text-lg  max-w-2xl mx-auto">
             We value the opinions of our beloved students. They are our motivation to keep improving and delivering value 🌟
           </p>
         </div>
